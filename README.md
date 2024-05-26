@@ -15,6 +15,49 @@ P is the number of connected components
 V(G)=32-24+2=10
 
 
+Тест случаи според критериумот Every statement
+
+Тест случај 1: allItems е null
+Влез: checkCart(null, 100) 
+Фрла RuntimeException со порака "allItems листата не може да биде null!" 
+
+Тест случај 2: item.getName() е null
+Влез: checkCart([new Item(null, "12345", 100, 0)], 100) 
+true (името се поставува на "unknown", баркодот е валиден, цената е во рамките на плаќањето) 
+
+Тест случај 3: item.getName() е празно
+Влез: checkCart([new Item("", "12345", 100, 0)], 100) 
+true (името се поставува на "unknown", баркодот е валиден, цената е во рамките на плаќањето) 
+
+Тест случај 4: item.getBarcode() е null
+Влез: checkCart([new Item("item", null, 100, 0)], 100) 
+Фрла RuntimeException со порака "Нема баркод!" 
+
+Тест случај 5: item.getBarcode() содржи невалиден карактер
+Влез: checkCart([new Item("item", "12a45", 100, 0)], 100) 
+Фрла RuntimeException со порака "Невалиден карактер во баркодот на производот!" 
+
+Тест случај 6: item.getDiscount() > 0
+Влез: checkCart([new Item("item", "12345", 100, 0.1f)], 100) 
+true (попустот е применет, цената е во рамките на плаќањето) 
+
+Тест случај 7: item.getDiscount() <= 0
+Влез: checkCart([new Item("item", "12345", 100, 0)], 100) 
+true (без попуст, цената е во рамките на плаќањето) 
+
+Тест случај 8: item.getPrice() > 300 && item.getDiscount() > 0 && item.getBarcode().charAt(0) == '0'
+Влез: checkCart([new Item("item", "012345", 350, 0.1f)], 100) 
+false (цената го надминува плаќањето и со применет попуст) 
+
+Тест случај 9: сум <= плаќање
+Влез: checkCart([new Item("item", "12345", 100, 0)], 100) 
+true (цената е во рамките на плаќањето)
+
+Тест случај 10: сум > плаќање
+Влез: checkCart([new Item("item", "12345", 150, 0)], 100) 
+false (цената го надминува плаќањето)
+
+
 
 
 
