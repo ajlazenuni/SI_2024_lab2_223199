@@ -1,12 +1,14 @@
+<h1>Втора лабораториска вежба по Софтверско инженерство</h1>
+
 # SI_2024_lab2_223199
 
 Ajla Zenuni 
 223199
 
-Control Flow Graph
+<h2>Control Flow Graph</h2>
 ![CFG](https://github.com/ajlazenuni/SI_2024_lab2_223199/assets/165494457/1ce70395-799c-4959-b757-9b91dac2269c)
 
-Cyclomatic Complexity
+<h2>Cyclomatic Complexity</h2>
 
 V(G)=E−N+2P
 E is the number of edges in the graph.
@@ -15,7 +17,7 @@ P is the number of connected components
 V(G)=32-24+2=10
 
 
-Тест случаи според критериумот Every statement
+<h2>Тест случаи според критериумот Every statement</h2>
 
 Тест случај 1: allItems е null
 Влез: checkCart(null, 100) 
@@ -57,7 +59,7 @@ true (цената е во рамките на плаќањето)
 Влез: checkCart([new Item("item", "12345", 150, 0)], 100) 
 false (цената го надминува плаќањето)
 
-Тест случаи според критериумот Multiple Condition
+<h2>Тест случаи според критериумот Multiple Condition</h2>
 
 Комбинации на тест случаи
 (T, T, T):
@@ -85,7 +87,7 @@ false (цената го надминува плаќањето)
 Влез: new Item("item", "112345", 250, 0)
 Очекуван излез: True (сите услови се невистинити)
 
-Објаснување на напишаните unit tests
+<h2>Објаснување на напишаните unit tests</h2>
 
 Прво тестирање: Фрла RuntimeException кога allItems е null, проверува дали пораката содржи "allItems list can't be null!".
 Второ тестирање: Тестира дали фрла RuntimeException кога barcode е null, проверува дали пораката содржи "No barcode!".
